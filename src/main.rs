@@ -2,6 +2,7 @@ use die::die;
 
 use std::{thread, time};
 
+// Fibonnaci sequence
 fn fib(n: f64) -> f64 {
 	if n <= 1.0 {
 		return n;
@@ -17,10 +18,10 @@ fn main() {
 	let n = 9.0;
 
 	// Core
-	loop {
+	while n <= 255.0 {
 		println!("{}", fib(n));
 
 		// Wait 500 ms after each output to avoid flodding the console
 		thread::sleep(time::Duration::from_millis(500));
-	}	
+	}
 }
