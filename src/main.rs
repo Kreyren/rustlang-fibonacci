@@ -4,8 +4,10 @@ use std::{thread, time};
 
 // Fibonnaci sequence
 fn fib(n: f64) -> f64 {
-	if n <= 1.0 {
-		return n;
+	if n == 0.0 {
+		return 0.0;
+	} else if n == 1.0 {
+		return 1.0;
 	} else if n > 1.0 {
 		return fib(n-1.0) + fib(n-2.0);
 	} else {
@@ -15,13 +17,15 @@ fn fib(n: f64) -> f64 {
 
 fn main() {
 	// Input - FIXME: Implement grabbing from cli
-	let n = 9.0;
+	let n = 200.0;
 
 	// Core
 	while n <= 255.0 {
-		println!("{}", fib(n));
+		println!("fibbonacci {}", fib(n));
 
 		// Wait 500 ms after each output to avoid flodding the console
 		thread::sleep(time::Duration::from_millis(500));
 	}
+
+	die!(0; "Success!");
 }
