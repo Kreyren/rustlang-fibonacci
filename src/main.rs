@@ -1,6 +1,7 @@
+use die::Die;
 use die::die;
-
-use std::{thread, time};
+use std::io;
+use std::string::String;
 
 // Fibonnaci sequence
 fn fib(n: f64) -> f64 {
@@ -16,16 +17,13 @@ fn fib(n: f64) -> f64 {
 }
 
 fn main() {
-	// Input - FIXME: Implement grabbing from cli
-	let n = 200.0;
+	#[allow(non_snake_case)]
+	let mut userInput = String::new();
 
-	// Core
-	while n <= 255.0 {
-		println!("fibbonacci {}", fib(n));
+	// Process userInput
+	io::stdin().read_line(&mut userInput).die_code("Unexpected input 'fixme_input_value' has been parsed", 256);
+	let n: f64 = userInput.trim_end_matches("\n").parse().die_code("Invalid argument 'fixme_argument' has been parsed", 2);
 
-		// Wait 500 ms after each output to avoid flodding the console
-		thread::sleep(time::Duration::from_millis(500));
-	}
-
-	die!(0; "Success!");
+	// Output
+	println!("{}", fib(n));
 }
