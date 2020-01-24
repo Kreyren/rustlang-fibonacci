@@ -17,7 +17,13 @@ fn fib(n: f64) -> f64 {
 
 fn main() {
 	// Input - FIXME: Implement grabbing from cli
-	let n = 200.0;
+	let mut userInput = String::new();
+
+	/// FIXME: Filter out 'userInput' variable
+	/// If 'userInput' stores an integer -> Convert in float and assign in `n`
+	/// if userInput stores float -> Assign in `n` 
+	/// If userInput stores string -> Err2
+	/// If userInput stores anything else -> Err256
 
 	// Core
 	while n <= 255.0 {
