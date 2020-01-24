@@ -17,15 +17,13 @@ fn fib(n: f64) -> f64 {
 }
 
 fn main() {
-	// Input - FIXME: Implement grabbing from cli
+	#[allow(non_snake_case)]
 	let mut userInput = String::new();
 
-	// FIXME: Filter out 'userInput' variable
-	// If userInput stores anything else -> Err256 
+	// Process userInput
+	io::stdin().read_line(&mut userInput).die_code("Unexpected input 'fixme_input_value' has been parsed", 256);
+	let n: f64 = userInput.trim_end_matches("\n").parse().die_code("Invalid argument 'fixme_argument' has been parsed", 2);
 
-	io::stdin().read_line(&mut userInput).die_code("bad input", 256);
-	let n: f64 = userInput.trim_end_matches("\n").parse().die_code("not a float", 2);
+	// Output
 	println!("{}", fib(n));
-
-	die!(0);
 }
