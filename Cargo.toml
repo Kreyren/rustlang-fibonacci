@@ -1,5 +1,5 @@
 [package]
-name = "rustlang-fibonnaci"
+name = "fibonnaci_kreyren"
 version = "0.1.0"
 authors = ["Kreyren <KostWarCZE@RiXotStudio.cz>"]
 edition = "2018"
