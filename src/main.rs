@@ -1,6 +1,7 @@
+use die::Die;
 use die::die;
-
-use std::{thread, time};
+use std::io;
+use std::string::String;
 
 // Fibonnaci sequence
 fn fib(n: f64) -> f64 {
@@ -19,19 +20,12 @@ fn main() {
 	// Input - FIXME: Implement grabbing from cli
 	let mut userInput = String::new();
 
-	/// FIXME: Filter out 'userInput' variable
-	/// If 'userInput' stores an integer -> Convert in float and assign in `n`
-	/// if userInput stores float -> Assign in `n` 
-	/// If userInput stores string -> Err2
-	/// If userInput stores anything else -> Err256
+	// FIXME: Filter out 'userInput' variable
+	// If userInput stores anything else -> Err256 
 
-	// Core
-	while n <= 255.0 {
-		println!("fibbonacci {}", fib(n));
+	io::stdin().read_line(&mut userInput).die_code("bad input", 256);
+	let n: f64 = userInput.trim_end_matches("\n").parse().die_code("not a float", 2);
+	println!("{}", fib(n));
 
-		// Wait 500 ms after each output to avoid flodding the console
-		thread::sleep(time::Duration::from_millis(500));
-	}
-
-	die!(0; "Success!");
+	die!(0);
 }
