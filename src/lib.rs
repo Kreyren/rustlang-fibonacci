@@ -1,4 +1,6 @@
-pub fn fibonacci() -> impl Iterator<Item = u64> {
+// NOTICE: Has to be inlined, because inlining does not happend across crate boundaries unless inline is set (difference of +-70% of efficiency)
+#[inline]
+pub fn fibonacci() -> impl Iterator<Item = u128> {
 	let mut state = [1, 1];
 		std::iter::from_fn(move || {
 			state.rotate_left(1);
