@@ -1,14 +1,8 @@
-use die::die;
-
-// Fibonnaci sequence
-pub fn fib(n: f64) -> f64 {
-	if n == 0.0 {
-		return 0.0;
-	} else if n == 1.0 {
-		return 1.0;
-	} else if n > 1.0 {
-		return fib(n-1.0) + fib(n-2.0);
-	} else {
-		die!(256; "Unexpected happend while processing number '{}'", n);
-	}
+pub fn fibonacci() -> impl Iterator<Item = u64> {
+	let mut state = [1, 1];
+		std::iter::from_fn(move || {
+			state.rotate_left(1);
+			let next = state[0] + state[1];
+			Some(std::mem::replace(&mut state[1], next))
+	})
 }

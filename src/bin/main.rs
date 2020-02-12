@@ -2,14 +2,14 @@ use std::io;
 use std::string::String;
 use die::Die;
 
-use fibonnaci_kreyren::fib;
+use fibonnaci_kreyren::fibonacci;
 
 macro_rules! fixme {
 	($msg:expr) => ( println!("FIXME: {}", $msg);)
 }
 
 fn main() {
-	#[allow(non_snake_case)] // Makes it more readable
+	#[allow(non_snake_case)]
 	let mut userInput = String::new();
 
 	// Process userInput
@@ -23,6 +23,9 @@ fn main() {
 		fixme!("Function 'fib' takes too long to process numbers greater then 41");
 	}
 
-	// Output
-	println!("{}", fib(n));
+	pub fn example() -> u64 {
+		fibonacci().take(10).sum()
+	}
+
+	println!("{}", example());
 }
