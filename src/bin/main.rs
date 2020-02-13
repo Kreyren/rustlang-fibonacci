@@ -17,5 +17,5 @@ fn main() {
 		.die_code("Invalid argument 'fixme_argument' has been parsed", 2);
 
 	// FIXME: Output based on userinput
-	println!("{}", fibonacci().take(n);
+	println!("{}", fibonacci().take(n));
 }
