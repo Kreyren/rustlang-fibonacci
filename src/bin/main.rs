@@ -16,6 +16,6 @@ fn main() {
 	let n: usize = userInput.trim_end_matches("\n").parse()
 		.die_code("Invalid argument 'fixme_argument' has been parsed", 2);
 
-	// FIXME: Output based on userinput
+	// Output
 	println!("{:?}", fibonacci().take(n).collect::<Vec<_>>());
 }
