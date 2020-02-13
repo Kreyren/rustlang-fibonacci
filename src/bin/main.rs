@@ -1,5 +1,5 @@
-use std::io;
 use std::string::String;
+use std::io;
 use die::Die;
 
 use kreybonacci::fibonacci;
@@ -17,5 +17,5 @@ fn main() {
 		.die_code("Invalid argument 'fixme_argument' has been parsed", 2);
 
 	// FIXME: Output based on userinput
-	println!("{:?}", fibonacci().take(n.try_into().unwrap()));
+	println!("{:?}", fibonacci().take(n));
 }
