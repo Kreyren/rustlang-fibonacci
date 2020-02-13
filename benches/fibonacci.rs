@@ -1,6 +1,6 @@
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
 
-use fibonnaci_kreyren::fibonacci;
+use kreybonacci::fibonacci;
 
 /*
   This is base benchmark made for consistency

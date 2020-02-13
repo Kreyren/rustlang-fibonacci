@@ -1,0 +1,6 @@
+use kreybonacci::fibonacci;
+
+#[test]
+if fibonacci(5) != "38" {
+	die(1; "Test for fibonacci(5) did not return 38, returned '{}'", fibonacci(5));
+};

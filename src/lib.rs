@@ -18,8 +18,3 @@ pub fn fibonacci() -> impl Iterator<Item = u128> {
 			Some(std::mem::replace(&mut state[1], next))
 	})
 }
-
-//#[cfg(test)]
-//if fibonacci(5) != "38" {
-//	die(1; "Test for fibonacci(5) did not return 38, returned '{}'", fibonacci(5));
-//};
