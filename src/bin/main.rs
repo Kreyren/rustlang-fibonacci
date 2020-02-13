@@ -17,5 +17,6 @@ fn main() {
 		.die_code("Invalid argument 'fixme_argument' has been parsed", 2);
 
 	// Output
+	fixme!("Panics on amd64 with standards limits if set above 185");
 	println!("{:?}", fibonacci().take(n).collect::<Vec<_>>());
 }
