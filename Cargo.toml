@@ -1,5 +1,5 @@
 [package]
-name = "fibonnaci_kreyren"
+name = "kreybonacci"
 version = "0.1.0"
 authors = ["Kreyren <KostWarCZE@RiXotStudio.cz>"]
 edition = "2018"

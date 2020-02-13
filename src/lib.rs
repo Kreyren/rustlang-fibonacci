@@ -8,3 +8,18 @@ pub fn fibonacci() -> impl Iterator<Item = u128> {
 			Some(std::mem::replace(&mut state[1], next))
 	})
 }
+
+//#[cfg(test)]
+//if fibonacci(5) != "38" {
+//	die(1; "Test for fibonacci(5) did not return 38, returned '{}'", fibonacci(5));
+//}
+
+// Macro to handle fixme messages
+// FIXME: Implement export in log directory based on system used
+// FIXME: Allow end-user to customize the message
+// FIXME: Allow end-user to mute the messages through configuration
+// FIXME: Contribute in log to outsource maintainance on them
+#[macro_export]
+macro_rules! fixme {
+	($msg:expr) => ( println!("FIXME: {}", $msg);)
+}
