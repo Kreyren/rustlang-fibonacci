@@ -1,6 +1,6 @@
 use die::die;
 
-// Fibonnaci sequence
+// Fibonacci sequence
 pub fn fib(n: f64) -> f64 {
 	if n == 0.0 {
 		return 0.0;
