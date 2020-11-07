@@ -1,28 +1,17 @@
-use std::io;
-use std::string::String;
-use die::Die;
-
-use fibonnaci_kreyren::fib;
-
-macro_rules! fixme {
-	($msg:expr) => ( println!("FIXME: {}", $msg);)
-}
+use my_fibonacci::fibonacci;
+use std::{io::stdin, io::stdout, io::Write};
 
 fn main() {
-	#[allow(non_snake_case)] // Makes it more readable
-	let mut userInput = String::new();
+    let mut n: String = String::new();
+    print!("Index: ");
 
-	// Process userInput
-	io::stdin().read_line(&mut userInput)
-		.die_code("Unexpected input 'fixme_input_value' has been parsed", 256);
-	let n: f64 = userInput.trim_end_matches("\n").parse()
-		.die_code("Invalid argument 'fixme_argument' has been parsed", 2);
+    stdout().flush().unwrap();
+    stdin()
+        .read_line(&mut n)
+        .expect("Failed to read from stdin!");
 
-	// FIXME: Optimize better for numbers greater then 41
-	if n > 41.0 {
-		fixme!("Function 'fib' takes too long to process numbers greater then 41");
-	}
-
-	// Output
-	println!("{}", fib(n));
+    match n.trim().parse::<u64>() {
+        Ok(x) => println!("Index: {:1} Fibonacci number: {:1}", x, fibonacci(x)),
+        Err(..) => println!("Integer Expected! Found: '{}'.", n),
+    };
 }

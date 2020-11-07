@@ -1,0 +1,13 @@
+language: rust
+
+script:
+  - cargo build --verbose --workspace
+  - cargo test --verbose --workspace
+
+rust:
+  - stable
+
+jobs:
+  allow_failures:
+    - rust: nightly
+  fast_finish: true

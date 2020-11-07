@@ -1,10 +1,43 @@
 [package]
-name = "fibonnaci_kreyren"
-version = "0.1.0"
-authors = ["Kreyren <KostWarCZE@RiXotStudio.cz>"]
-edition = "2018"
+name = "my_fibonacci"
+description   =  "Another simple inefficient garbage fibonacci calculator in Rust"
+keywords      =  [ "fibonacci" ]
+version       =  "0.1.0"
+authors       =  [ "Kreyren <KostWarCZE@RiXotStudio.cz>", "uniminin <uniminin@zoho.com>" ]
+edition       = "2018"
+include       =  [
+    "src/*.rs",
+    "Cargo.toml",
+    "Cargo.lock",
+    "LICENSE",
+    "README.md"
+]
+exclude       =  [
+    ".git",
+    ".github",
+    ".travis.yml",
+    "target"
+]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[profile.release]
+opt-level         =  3          # apply all optimizations
+debug             =  false      # debug information
+debug-assertions  =  false      # runtime validation (debug/development builds)
+overflow-checks   =  false      # panic will occur on overflow
+lto               =  "fat"      # perform optimizations across all crates within the dependency graph
+panic             =  "abort"    # Unwind the stack upon panic
+incremental       =  false      # improves re-compile times
+codegen-units     =  16         # crate to be processed in parallel (16 for non-incremental builds)
+rpath             =  false      # disable rpath flag
 
-[dependencies]
-die = "0.2.0"
+[profile.test]
+debug             =  true      # debug information
+debug-assertions  =  true      # runtime validation (debug/development builds)
+overflow-checks   =  false      # panic will occur on overflow
+incremental       =  false      # improves re-compile times
+
+
+[[bin]]
+bench  =  false
+path   =  "src/bin/main.rs"
+name   =  "fibonacci"
